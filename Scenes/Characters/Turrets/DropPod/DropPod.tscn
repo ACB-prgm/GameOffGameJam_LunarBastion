@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Turrets/DropPod/DropPod.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Characters/Turrets/DropPod/DropPod.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Abstract/ParticlesCache/Materials/DropPodSmoke.tres" type="Material" id=3]
+
+[node name="DropPod" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="SmokeTrailParticles2D" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 0.0640106, -15.349 )
+amount = 40
+explosiveness = 0.6
+local_coords = false
+process_material = ExtResource( 3 )

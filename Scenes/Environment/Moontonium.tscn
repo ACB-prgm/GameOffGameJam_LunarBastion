@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Environment/Moontonium/Moontonium_Solid.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Environment/Moontonium/Moontonium_Lights.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Environment/Moontonium.gd" type="Script" id=3]
+
+[node name="Moontonium" type="Sprite"]
+position = Vector2( 17.0699, 12.7318 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Lights" type="Sprite" parent="."]
+texture = ExtResource( 2 )

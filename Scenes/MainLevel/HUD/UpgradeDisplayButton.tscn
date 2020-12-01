@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/GravityBold8.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/HUD/DisplayBox.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/HUD/DisplayBox_Pressed.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/MainLevel/HUD/UpgradeDisplayButton.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 1
+outline_color = Color( 0.466667, 0.294118, 0.960784, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="UpgradeDisplayButton" type="TextureButton"]
+margin_right = 60.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 30, 30 )
+focus_mode = 0
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+upgrade = "fortification"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 10.0509
+margin_top = 11.1089
+margin_right = 47.0509
+margin_bottom = 46.1089
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Name" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -46.0
+margin_top = 1.92443
+margin_right = 46.0
+margin_bottom = 21.9244
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 46, 0 )
+theme = SubResource( 2 )
+text = "Name"
+align = 1
+autowrap = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Description" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.0
+margin_top = -27.0
+margin_right = 46.0
+margin_bottom = 27.0
+grow_horizontal = 2
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 46, 27 )
+theme = SubResource( 2 )
+text = "Description"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Cost" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -44.0
+margin_top = -21.6667
+margin_right = 44.0
+margin_bottom = -1.66666
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 44, 20 )
+theme = SubResource( 2 )
+text = "Cost: 000"
+align = 1
+valign = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+[connection signal="toggled" from="." to="." method="_on_UpgradeDisplayButton_toggled"]

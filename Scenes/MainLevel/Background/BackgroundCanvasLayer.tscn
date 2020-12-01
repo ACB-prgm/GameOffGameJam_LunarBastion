@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/MainLevel/Background/ParallaxBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Background/MoonSurface copy.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Environment/Earth/Earth.tscn" type="PackedScene" id=3]
+
+[node name="BackgroundCanvasLayer" type="CanvasLayer"]
+layer = -2
+follow_viewport_enable = true
+
+[node name="ParallaxBackground2" parent="." instance=ExtResource( 1 )]
+
+[node name="Earth" parent="." instance=ExtResource( 3 )]
+position = Vector2( 342.047, 58.4911 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Moon" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false

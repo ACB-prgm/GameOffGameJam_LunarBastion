@@ -1,0 +1,299 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Scenes/MainLevel/HUD/MoontoniumCounter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/MainLevel/HUD/Hud.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/MainLevel/HUD/UITabs.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/GravityBold8.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/MainLevel/HUD/LaunchButton.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/MainLevel/HUD/MessagerLabel.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/MainLevel/HUD/TabsMouseDetector.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/MainLevel/HUD/Label.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+outline_size = 1
+outline_color = Color( 0.466667, 0.294118, 0.960784, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="InputEventKey" id=7]
+scancode = 72
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="DynamicFont" id=14]
+outline_size = 2
+outline_color = Color( 0.466667, 0.294118, 0.960784, 1 )
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="InputEventKey" id=15]
+scancode = 16777221
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="DynamicFont" id=22]
+size = 8
+outline_size = 1
+outline_color = Color( 0.466667, 0.294118, 0.960784, 1 )
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="InputEventKey" id=23]
+scancode = 88
+
+[sub_resource type="ShortCut" id=24]
+shortcut = SubResource( 23 )
+
+[sub_resource type="DynamicFont" id=25]
+outline_size = 1
+outline_color = Color( 0.466667, 0.294118, 0.960784, 1 )
+use_mipmaps = true
+extra_spacing_space = -7
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=26]
+outline_size = 1
+outline_color = Color( 0.466667, 0.294118, 0.960784, 1 )
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoontoniumCounter" parent="." instance=ExtResource( 1 )]
+margin_left = 10.0
+margin_top = 8.0
+margin_right = 26.0
+margin_bottom = 24.0
+
+[node name="UITabs" parent="." instance=ExtResource( 3 )]
+margin_left = 8.0
+margin_top = 270.0
+margin_right = 304.0
+margin_bottom = 430.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="TabsMouseDetector" type="Control" parent="."]
+margin_right = 32.0
+margin_bottom = 216.0
+mouse_filter = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HideTabsButton" type="Button" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 53.0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+toggle_mode = true
+shortcut_in_tooltip = false
+action_mode = 0
+shortcut = SubResource( 8 )
+text = "hide tabs [h]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TurretLimitLabel" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 32.0
+margin_right = 200.0
+margin_bottom = 53.0
+rect_scale = Vector2( 0.75, 0.75 )
+focus_mode = 2
+size_flags_vertical = 1
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0/6 Turrets"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LaunchButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -43.0
+margin_right = 90.0
+margin_bottom = -23.0
+rect_pivot_offset = Vector2( 90, 10 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+shortcut_in_tooltip = false
+action_mode = 0
+shortcut = SubResource( 16 )
+text = "Launch! [enter]"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AbortButton" type="Button" parent="LaunchButton"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -30.0
+margin_top = 1.0
+margin_right = 30.0
+margin_bottom = 21.0
+rect_pivot_offset = Vector2( 30, 20 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+custom_fonts/font = SubResource( 22 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 24 )
+text = "abort [x]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessagerLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.0
+margin_top = -8.0
+margin_right = 175.0
+margin_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 175, 8 )
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Message"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="MessagerLabel"]
+
+[node name="TimerLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -33.0
+margin_top = 28.0
+margin_right = 1.0
+margin_bottom = 44.0
+grow_horizontal = 0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0.0"
+align = 2
+valign = 1
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Timer" type="Timer" parent="TimerLabel"]
+wait_time = 0.01
+autostart = true
+
+[node name="TimeSinceIncident" type="Label" parent="TimerLabel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -85.0
+margin_top = -5.33333
+margin_right = 85.0
+margin_bottom = 30.6667
+grow_horizontal = 0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 85, -36 )
+custom_fonts/font = SubResource( 26 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Time since
+last incident"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+[connection signal="base_deselected" from="." to="UITabs" method="_on_HUD_base_deselected"]
+[connection signal="base_selected" from="." to="UITabs" method="_on_HUD_base_selected"]
+[connection signal="item_launched" from="." to="UITabs" method="_on_item_launched"]
+[connection signal="item_launched" from="." to="MoontoniumCounter" method="_on_HUD_item_launched"]
+[connection signal="upgrade_launched" from="." to="UITabs" method="_on_HUD_upgrade_launched"]
+[connection signal="upgrade_launched" from="." to="MoontoniumCounter" method="_on_HUD_upgrade_launched"]
+[connection signal="current_item_deselected" from="UITabs" to="." method="_on_UITabs_current_item_deselected"]
+[connection signal="item_selected" from="UITabs" to="." method="_on_UITabs_item_selected"]
+[connection signal="tab_changed" from="UITabs" to="." method="_on_UITabs_tab_changed"]
+[connection signal="upgrade_selected" from="UITabs" to="." method="_on_UITabs_upgrade_selected"]
+[connection signal="custom_mouse_entered_exited" from="TabsMouseDetector" to="UITabs" method="_on_TabsMouseDetector_custom_mouse_entered_exited"]
+[connection signal="toggled" from="HideTabsButton" to="." method="_on_HideTabsButton_toggled"]
+[connection signal="pressed" from="LaunchButton" to="." method="_on_LaunchButton_pressed"]
+[connection signal="pressed" from="LaunchButton/AbortButton" to="." method="_on_AbortButton_pressed"]
+[connection signal="tween_all_completed" from="MessagerLabel/Tween" to="MessagerLabel" method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_Timer_timeout"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Turrets/Bullets/RocketLauncherBullet.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Characters/Turrets/Bullets/RocketLauncherBullet.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.0962963, 0.196296, 0.4, 0.718518, 1 )
+colors = PoolColorArray( 0.980392, 0.941176, 0.784314, 1, 0.945312, 0.669732, 0.239826, 1, 0.617188, 0.264872, 0.195725, 1, 0.164706, 0.160784, 0.172549, 1, 0.164706, 0.160784, 0.172549, 1, 0.164706, 0.160784, 0.172549, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+max_value = 1.2
+_data = [ Vector2( 0, 0.59009 ), 0.0, 0.0, 0, 0, Vector2( 0.132075, 0.828829 ), 0.0, 0.292997, 0, 0, Vector2( 1, 1.2 ), 0.520874, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 0 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 130.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 3.0
+scale = 3.0
+scale_random = 0.5
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1.37839, 2.51065 )
+
+[node name="RocketLauncherBullet" type="Sprite"]
+show_behind_parent = true
+scale = Vector2( 1, 0.75 )
+texture = ExtResource( 1 )
+flip_h = true
+script = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+show_behind_parent = true
+position = Vector2( -4.03003, 0.0231609 )
+amount = 50
+local_coords = false
+process_material = SubResource( 5 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -22.698, -0.0433878 )
+scale = Vector2( 0.155537, 0.214655 )
+
+[node name="KillArea2D" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea2D"]
+position = Vector2( -5.92263, -0.216947 )
+shape = SubResource( 6 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="KillArea2D" to="." method="_on_KillArea2D_area_entered"]

@@ -1,0 +1,151 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Sprites/Turrets/BaseTurret/BaseTurretHEAD.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Turrets/BaseTurret/BaseTurretLegs.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Characters/Turrets/BaseTurret.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Effects/MuzzleFlash/MuzzleFlash.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Turrets/BaseTurret/BaseTurretFLASH_MAIN.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Characters/Turrets/Head.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Turrets/BaseTurret/BaseTurretShadow.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Characters/Turrets/Shadow.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Effects/LaningDustEffect/LandingDustEffect.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Turrets/HealthDisplay/TurretHealthFill.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Turrets/HealthDisplay/TurretHealthRect.png" type="Texture" id=11]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.43229
+height = 11.5063
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6.49289, 7.56896 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[node name="Turret" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.122343, 7.11573 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Legs" type="Sprite" parent="."]
+position = Vector2( 1.37711, 3.97787 )
+texture = ExtResource( 2 )
+
+[node name="Shadow" type="Sprite" parent="Legs"]
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
+
+[node name="ShadowTween" type="Tween" parent="Legs/Shadow"]
+
+[node name="Head" type="Sprite" parent="."]
+position = Vector2( 0.892181, -3.95398 )
+texture = ExtResource( 1 )
+hframes = 4
+script = ExtResource( 6 )
+
+[node name="SpriteFlash" type="Sprite" parent="Head"]
+texture = ExtResource( 5 )
+hframes = 4
+
+[node name="SpriteFlashTween" type="Tween" parent="Head"]
+
+[node name="BarrelPosition" type="Position2D" parent="Head"]
+position = Vector2( 5.5107, 0.500987 )
+
+[node name="MuzzleFlash" parent="Head/BarrelPosition" instance=ExtResource( 4 )]
+position = Vector2( 3.7279, -0.075819 )
+
+[node name="ShellEjectionPosition" type="Position2D" parent="Head"]
+position = Vector2( -2.24079, -2.41703 )
+
+[node name="Range" type="Area2D" parent="."]
+show_behind_parent = true
+monitorable = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+modulate = Color( 1, 0, 1, 0.647059 )
+position = Vector2( 0, 1.866 )
+scale = Vector2( 1, 0.8 )
+shape = SubResource( 2 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+modulate = Color( 1, 1, 0, 0.894118 )
+monitoring = false
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="LandingDustEffect" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1.18016, 8.06443 )
+
+[node name="HealthBarProgress" type="TextureProgress" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -14.0
+margin_top = -18.6269
+margin_right = 14.0
+margin_bottom = -10.6269
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 14, 4 )
+mouse_filter = 2
+value = 100.0
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+focus_mode = 0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="mouse_entered" from="UpgradeButton" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradeButton" to="." method="_on_Button_mouse_exited"]
+[connection signal="toggled" from="UpgradeButton" to="." method="_on_Button_toggled"]

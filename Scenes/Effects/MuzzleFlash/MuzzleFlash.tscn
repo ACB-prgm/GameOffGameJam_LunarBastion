@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/Abstract/ParticlesCache/Materials/PlayerMuzzleFlashSide.tres" type="Material" id=1]
+[ext_resource path="res://Scenes/Effects/MuzzleFlash/MuzzleFlash.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Abstract/ParticlesCache/Materials/PlayerMuzzleFlashFront.tres" type="Material" id=3]
+[ext_resource path="res://Sprites/Effects/ExplosionAnim.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 768, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 896, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 4 )
+region = Rect2( 1024, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 4 )
+region = Rect2( 1152, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "default",
+"speed": 50.0
+} ]
+
+[node name="MuzzleFlash" type="Node2D"]
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 2 )
+
+[node name="AnimatedFlash" type="AnimatedSprite" parent="."]
+modulate = Color( 1.2, 1.1, 1, 1 )
+scale = Vector2( 0.336576, 0.651557 )
+frames = SubResource( 11 )
+frame = 9
+playing = true
+
+[node name="RightMuzzleFlash" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1.2, 1 )
+emitting = false
+amount = 10
+lifetime = 0.7
+one_shot = true
+speed_scale = 4.0
+explosiveness = 0.7
+process_material = ExtResource( 1 )
+
+[node name="LeftMuzzleFlash" type="Particles2D" parent="."]
+modulate = Color( 1, 1, 1.2, 1 )
+rotation = 3.14159
+emitting = false
+amount = 10
+lifetime = 0.7
+one_shot = true
+speed_scale = 4.0
+explosiveness = 0.7
+process_material = ExtResource( 1 )
+
+[node name="FrontMuzzleFlash" type="Particles2D" parent="."]
+modulate = Color( 1.1, 1.1, 1.3, 1 )
+show_behind_parent = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+speed_scale = 7.0
+explosiveness = 0.6
+process_material = ExtResource( 3 )
+[connection signal="animation_finished" from="AnimatedFlash" to="." method="_on_AnimatedFlash_animation_finished"]

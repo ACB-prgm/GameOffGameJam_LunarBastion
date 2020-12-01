@@ -1,0 +1,91 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Music/Music.gd" type="Script" id=1]
+[ext_resource path="res://Audio/TitleMusic.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Audio/SelectMedLow.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/SelectBright.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/MissileHitSound.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/BulletShootSound.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/SkeletorBeamSound.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/EnemyExplodeSound.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/BeamShootSound.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/EnemyBulletSound.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/GameMusic.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audio/FlickeringLightSound.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/RespawnSound.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/PlayerSpawnSound.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/Danger_Alert_Sound.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/Powerup.wav" type="AudioStream" id=16]
+[ext_resource path="res://Audio/PlayerExplode.wav" type="AudioStream" id=17]
+
+[node name="Music" type="Node"]
+script = ExtResource( 1 )
+
+[node name="StartMusicTween" type="Tween" parent="."]
+
+[node name="StopMusicTween" type="Tween" parent="."]
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.0
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -20.0
+
+[node name="UIHoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
+
+[node name="UISelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -4.0
+
+[node name="BulletHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="BulletShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+pitch_scale = 1.05
+
+[node name="PlayerBeamSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -4.0
+
+[node name="SkeletorBeamSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -2.0
+
+[node name="EnemyExplodeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="EnemyBulletsSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+pitch_scale = 1.5
+
+[node name="LightFLickeringSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
+
+[node name="RespawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 2.0
+
+[node name="PlayerSpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -5.0
+
+[node name="PowerupAlertSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -5.0
+
+[node name="PowerupCollectedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -5.0
+
+[node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = 5.0
+[connection signal="tween_completed" from="StopMusicTween" to="." method="_on_StopMusicTween_tween_completed"]
