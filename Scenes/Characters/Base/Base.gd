@@ -76,7 +76,7 @@ func health_bar():
 	else:
 		healthBar.hide()
 
-	healthBar.value = health/max_health * 100
+	healthBar.value = health/float(max_health) * 100
 
 
 # UPGRADE ———————————————————————————————————————————

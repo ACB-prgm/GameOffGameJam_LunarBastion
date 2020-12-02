@@ -5,6 +5,8 @@ onready var animTween = $AnimTween
 onready var titleLabel = $TitleLabel
 onready var timeToBeat = $TimeToBeatLabel
 onready var playButton = $PlayButton
+onready var UIHoverSound = Music.UIHoverSound
+onready var UISelectSound = Music.UISelectSound
 
 var displayed_timetobeat = false
 var timer_yielding = false
@@ -15,6 +17,8 @@ func _ready():
 	Globals.save_data()
 	Items.load_backup()
 	Globals.enemy_health_multiplyer = 1
+	
+	Music.play_music_fade(Music.titleMusic, Music.titleMusic.volume_db)
 	
 	animTween.interpolate_property(titleLabel, 'modulate', Color(1,1,1,0),
 	Color(1,1,1,1), 1.2, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
@@ -36,6 +40,8 @@ func _on_AnimTween_tween_all_completed():
 
 
 func _on_PlayButton_pressed():
+	UISelectSound.play()
+	Music.stop_music_fade(Music.titleMusic, 1)
 	if !timer_yielding:
 		Transitioner.fade_out(self.get_tree(), "res://Scenes/MainLevel/Main.tscn")
 	else:
@@ -47,3 +53,7 @@ func _on_YSort_timer_yielding(boolean):
 	if !timer_yielding and queued:
 		Transitioner.fade_out(self.get_tree(), queued)
 
+
+
+func _on_PlayButton_mouse_entered():
+	UIHoverSound.play()

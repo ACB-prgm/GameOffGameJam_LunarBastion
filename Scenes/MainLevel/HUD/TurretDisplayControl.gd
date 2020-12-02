@@ -57,6 +57,7 @@ func write_info():
 
 func _on_TurretDisplayButton_toggled(button_pressed):
 	if button_pressed:
+		Music.UISelectSound.play()
 		rect_position += Vector2(3, 3).rotated(rect_rotation)
 		set_modulate(Color(1.1,1.1,1.1,1))
 		info.show()

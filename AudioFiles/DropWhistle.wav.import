@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DropWhistle.wav-fa80fa5044ae3e2bd1b2f6cc65398846.sample"
+
+[deps]
+
+source_file="res://AudioFiles/DropWhistle.wav"
+dest_files=[ "res://.import/DropWhistle.wav-fa80fa5044ae3e2bd1b2f6cc65398846.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

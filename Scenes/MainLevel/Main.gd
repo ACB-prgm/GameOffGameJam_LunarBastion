@@ -3,6 +3,7 @@ extends Node2D
 
 onready var ysort = $YSort
 onready var spawn_timer = $SpawnTimer
+onready var dropSound = Music.dropWhistleSound
 
 var viewport_y = Globals.viewport_y
 var viewport_x = Globals.viewport_x
@@ -19,6 +20,7 @@ var start_easing = true
 var inc_spawnrate_threshold = 20
 var wait_time_subtraction = 0.2
 var inc_enemyhealth_threshold = 3
+var endgame_attack_increased = false
 var count = 0
 var major_count = 0
 
@@ -31,9 +33,13 @@ var enimies = {
 
 func _ready():
 	randomize()
+	
+	Music.play_music_fade(Music.gameMusic, Music.gameMusic.volume_db)
+	
 	Transitioner.fade_in()
 
 func _on_Base_base_died():
+	Music.stop_music_fade(Music.gameMusic, 1)
 	Transitioner.fade_out(self.get_tree(), "res://Scenes/TitleScreen/TitleScreen.tscn")
 
 func spawn_enemies(num_enemies=1, type='mini', location=null):
@@ -77,7 +83,8 @@ func _on_SpawnTimer_timeout():
 			spawn_enemies(1, 'tank')
 		
 		if count % inc_spawnrate_threshold == 0 and spawn_timer.wait_time > 0.6:
-			inc_spawnrate_threshold += 20
+			if inc_spawnrate_threshold < 200:
+				inc_spawnrate_threshold += 20
 			count = 1
 			major_count += 1
 			
@@ -89,6 +96,16 @@ func _on_SpawnTimer_timeout():
 				if inc_enemyhealth_threshold > 1:
 					inc_enemyhealth_threshold -= 1
 				Globals.enemy_health_multiplyer += 0.25
+		
+		if count % 161 == 0:
+			count = 1
+			
+			if !Globals.endgame_attackrate_increased:
+				Globals.endgame_attackrate_increased = true
+				spawn_timer.set_wait_time(0.4)
+				
+			if Globals.enemy_health_multiplyer < 3:
+				Globals.enemy_health_multiplyer += 0.25
 
 
 func _on_HUD_item_launched(_cost, selected_position, mode, item):
@@ -97,6 +114,7 @@ func _on_HUD_item_launched(_cost, selected_position, mode, item):
 	current_mode = mode
 	target_position = selected_position
 	item_to_spawn = item
+	dropSound.play()
 
 func _on_ShootAnimTimer_timeout():
 	match current_mode:

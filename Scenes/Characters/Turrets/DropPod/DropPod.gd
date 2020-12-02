@@ -10,6 +10,7 @@ var HUD_scene_node = null
 
 onready var baseTurret_ins = baseTurretTSCN.instance()
 onready var trail = $SmokeTrailParticles2D
+onready var dropSound = Music.dropWhistleSound
 
 
 func _ready():

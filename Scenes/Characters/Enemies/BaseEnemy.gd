@@ -4,7 +4,7 @@ extends KinematicBody2D
 export var speed = 30
 export var health = 3.0
 export var damage = 1.0
-export var attack_rate = 2.0
+export var attack_rate = 1.8
 
 onready var base = Globals.Base
 onready var animationTree = $AnimationTree
@@ -24,6 +24,8 @@ func _ready():
 	health *= Globals.enemy_health_multiplyer
 	randomize()
 	
+	if Globals.endgame_attackrate_increased:
+		attack_rate *=0.5
 	attackRateTimer.set_wait_time(attack_rate)
 	
 	if base:

@@ -12,6 +12,7 @@ var moontoniumCounter = null
 var highsore = 0
 
 var enemy_health_multiplyer = 1
+var endgame_attackrate_increased = false
 
 
 # SAVING

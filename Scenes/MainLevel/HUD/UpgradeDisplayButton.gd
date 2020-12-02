@@ -49,6 +49,7 @@ func write_info():
 
 func _on_UpgradeDisplayButton_toggled(button_pressed):
 	if button_pressed and !turret_at_max_level:
+		Music.UISelectSound.play()
 		rect_position += Vector2(3, 3).rotated(rect_rotation)
 		set_modulate(Color(1.1,1.1,1.1,1))
 		emit_signal("upgrade_selected", upgrade, upgrade_cost, self)
@@ -63,3 +64,4 @@ func _on_UITabs_base_upgrade_selected():
 
 func _on_UITabs_base_upgrade_deselected():
 	hide()
+

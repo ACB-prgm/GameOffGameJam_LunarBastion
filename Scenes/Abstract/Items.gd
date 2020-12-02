@@ -10,7 +10,8 @@ var items = {
 		'bullet': "res://Scenes/Characters/Turrets/Bullets/BaseBullet.tscn",
 		'sprite_legs': "res://Sprites/Turrets/BaseTurret/BaseTurretLegs.png",
 		'sprite_head': "res://Sprites/Turrets/BaseTurret/BaseTurretHEAD.png",
-		'sprite_flash': "res://Sprites/Turrets/BaseTurret/BaseTurretFLASH_MAIN.png"
+		'sprite_flash': "res://Sprites/Turrets/BaseTurret/BaseTurretFLASH_MAIN.png",
+		'bulletsound' : 'basicBulletSound'
 		},
 	'sniper': {
 		'type': 'turret',

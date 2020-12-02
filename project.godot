@@ -19,7 +19,7 @@ config/name="GameOffGameJam_GodotProject"
 run/main_scene="res://Scenes/StartUp/GodotSplash/GodotStartupScreen.tscn"
 boot_splash/image="res://Scenes/StartUp/GodotSplash/BlackBack.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://icon.png"
+config/icon="res://Icon.png"
 
 [autoload]
 
@@ -27,6 +27,7 @@ Globals="*res://Scenes/Abstract/Globals.gd"
 Transitioner="*res://Scenes/Abstract/Transitioner/Transitioner.tscn"
 ParticlesCache="*res://Scenes/Abstract/ParticlesCache/ParticlesCache.gd"
 Items="*res://Scenes/Abstract/Items.gd"
+Music="*res://Scenes/Abstract/Music/Music.tscn"
 
 [display]
 

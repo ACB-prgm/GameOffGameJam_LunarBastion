@@ -102,7 +102,7 @@ blend_mode = 1
 
 [sub_resource type="StyleBoxEmpty" id=20]
 
-[sub_resource type="StyleBoxEmpty" id=25]
+[sub_resource type="StyleBoxEmpty" id=21]
 
 [sub_resource type="StyleBoxEmpty" id=22]
 
@@ -138,7 +138,7 @@ z_index = -1
 [node name="Drill" type="AnimatedSprite" parent="Drill"]
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 13 )
-frame = 7
+frame = 1
 playing = true
 
 [node name="DrillLight" type="Sprite" parent="Drill"]
@@ -231,7 +231,7 @@ margin_right = 73.0
 margin_bottom = 49.0
 focus_mode = 0
 custom_styles/hover = SubResource( 20 )
-custom_styles/pressed = SubResource( 25 )
+custom_styles/pressed = SubResource( 21 )
 custom_styles/focus = SubResource( 22 )
 custom_styles/disabled = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )

@@ -35,13 +35,15 @@ onready var range_ = $Range
 onready var range_collisionShape = $Range/CollisionShape2D
 onready var healthBar = $HealthBarProgress
 onready var base = Globals.Base
-onready var max_health = float(health)
+onready var max_health = health
+onready var explodeSound = Music.explodeSound
 
 
 func _ready():
 	if Globals.Base:
 		DEFAULT_look_direction = (base.global_position.direction_to(self.global_position))
 	set_variables()
+	explodeSound.play()
 	$LandingDustEffect.play_Anim()
 
 func set_variables():
@@ -104,6 +106,8 @@ func aim(delta):
 
 func shoot():
 	if target and can_shoot:
+#		shootsound.pitch_scale = 1 + rand_range(-0.05, 0.05)
+#		shootsound.play()
 		can_shoot = false
 		shootTimer.start()
 		
@@ -131,7 +135,7 @@ func health_bar():
 		healthBar.show()
 	else:
 		healthBar.hide()
-	healthBar.value = health/max_health * 100
+	healthBar.value = health/float(max_health) * 100
 
 func _on_Range_body_entered(body):
 	if !target:

@@ -39,8 +39,8 @@ position = Vector2( 250, 92 )
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="item_launched" from="HUDCanvasLayer/HUD" to="." method="_on_HUD_item_launched"]
 [connection signal="upgrade_launched" from="HUDCanvasLayer/HUD" to="." method="_on_HUD_upgrade_launched"]
-[connection signal="base_died" from="YSort/Base" to="HUDCanvasLayer/HUD" method="_on_Base_base_died"]
 [connection signal="base_died" from="YSort/Base" to="." method="_on_Base_base_died"]
+[connection signal="base_died" from="YSort/Base" to="HUDCanvasLayer/HUD" method="_on_Base_base_died"]
 [connection signal="upgrade_base_deselected" from="YSort/Base" to="HUDCanvasLayer/HUD" method="_on_Base_upgrade_base_deselected"]
 [connection signal="upgrade_base_selected" from="YSort/Base" to="HUDCanvasLayer/HUD" method="_on_Base_upgrade_base_selected"]
 

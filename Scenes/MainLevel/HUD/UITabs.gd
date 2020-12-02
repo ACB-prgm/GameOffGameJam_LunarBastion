@@ -8,6 +8,7 @@ var current_item_selected = null
 
 
 func _on_UITabs_tab_changed(tab):
+	Music.UISelectSound.play()
 	deselect_buttons(null, get_tab_control(get_previous_tab()))
 	
 	if tab == 0:

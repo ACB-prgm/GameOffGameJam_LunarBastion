@@ -8,35 +8,17 @@ onready var gameMusic = $GameMusic
 #SOUNDS
 onready var UIHoverSound = $UIHoverSound
 onready var UISelectSound = $UISelectSound
-onready var bulletHitSound = $BulletHitSound
-onready var bulletShootSound = $BulletShootSound
-onready var PlayerBeamSound = $PlayerBeamSound
-onready var skeletorBeamSOund = $SkeletorBeamSound
-onready var enemyExplodeSOund = $EnemyExplodeSound
-onready var enemyBulletSound = $EnemyBulletsSound
-onready var lightFlickeringSound = $LightFLickeringSound
-onready var powerupAlertSound = $PowerupAlertSound
-onready var powerupCollectedSound = $PowerupCollectedSound
-onready var respawnSound = $RespawnSound
-onready var playerSpawnSound = $PlayerSpawnSound
-onready var ExplodeSound = $ExplodeSound
+#onready var basicBulletSound = $Basic_BulletSound
+#onready var rocketBulletSound = $Rocket_BulletSound
+#onready var sniperBulletSound = $Sniper_BulletSound
+#onready var shotgunBulletSound = $Shotgun_BulletSound
+onready var dropWhistleSound = $DropWhistleSound
+onready var explodeSound = $ExplodeSound
 
 
 onready var sounds = [
 	UIHoverSound,
-	UISelectSound,
-	bulletHitSound,
-	bulletShootSound,
-	PlayerBeamSound,
-	skeletorBeamSOund,
-	enemyBulletSound,
-	enemyExplodeSOund,
-	lightFlickeringSound,
-	respawnSound,
-	playerSpawnSound,
-	powerupAlertSound,
-	powerupCollectedSound,
-	ExplodeSound,
+	UISelectSound
 ]
 
 onready var startMusicTween = $StartMusicTween

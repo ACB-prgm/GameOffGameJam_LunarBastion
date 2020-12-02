@@ -5,6 +5,7 @@ onready var aOE = $AOECollisionShape
 onready var impactSprite = $ImpactSprite
 onready var charSprite = $CharSprite
 onready var impactSpriteTween = $ImpactSpriteTween
+onready var explodeSound = Music.explodeSound
 
 var shake_amount = 50
 var fade_complete = false
@@ -21,6 +22,7 @@ func _ready():
 		damage = shellType_info.get('damage')
 		radius = shellType_info.get('radius')
 	
+	explodeSound.play()
 	aOE.shape.set_radius(radius)
 	
 	# Shell effects

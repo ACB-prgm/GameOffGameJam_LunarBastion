@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LunarBastion_Explosion.wav-71bfe0ebb7b52f2d39e13afbae46bf8c.sample"
+
+[deps]
+
+source_file="res://AudioFiles/LunarBastion_Explosion.wav"
+dest_files=[ "res://.import/LunarBastion_Explosion.wav-71bfe0ebb7b52f2d39e13afbae46bf8c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
