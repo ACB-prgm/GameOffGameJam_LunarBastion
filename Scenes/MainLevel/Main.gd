@@ -3,7 +3,6 @@ extends Node2D
 
 onready var ysort = $YSort
 onready var spawn_timer = $SpawnTimer
-onready var dropSound = Music.dropWhistleSound
 
 var viewport_y = Globals.viewport_y
 var viewport_x = Globals.viewport_x
@@ -109,12 +108,12 @@ func _on_SpawnTimer_timeout():
 
 
 func _on_HUD_item_launched(_cost, selected_position, mode, item):
+	Music.dropWhistleSound.play()
 	$BackgroundCanvasLayer/Earth.shoot()
 	$ShootAnimTimer.start()
 	current_mode = mode
 	target_position = selected_position
 	item_to_spawn = item
-	dropSound.play()
 
 func _on_ShootAnimTimer_timeout():
 	match current_mode:

@@ -36,14 +36,14 @@ onready var range_collisionShape = $Range/CollisionShape2D
 onready var healthBar = $HealthBarProgress
 onready var base = Globals.Base
 onready var max_health = health
-onready var explodeSound = Music.explodeSound
 
 
 func _ready():
 	if Globals.Base:
 		DEFAULT_look_direction = (base.global_position.direction_to(self.global_position))
 	set_variables()
-	explodeSound.play()
+	Music.groundHitSOund.pitch_scale = 0.8 + rand_range(-0.05, 0.05)
+	Music.groundHitSOund.play()
 	$LandingDustEffect.play_Anim()
 
 func set_variables():

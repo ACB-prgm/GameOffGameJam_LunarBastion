@@ -157,7 +157,7 @@ __meta__ = {
 [connection signal="timer_yielding" from="YSort" to="." method="_on_YSort_timer_yielding"]
 [connection signal="timeout" from="YSort/Timer" to="YSort" method="_on_Timer_timeout"]
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_PlayButton_mouse_entered"]
-[connection signal="pressed" from="PlayButton" to="YSort" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="YSort" method="_on_PlayButton_pressed"]
 
 [editable path="BackgroundCanvasLayer"]

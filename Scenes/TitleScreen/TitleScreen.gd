@@ -13,6 +13,7 @@ var timer_yielding = false
 var queued = null
 
 
+
 func _ready():
 	Globals.save_data()
 	Items.load_backup()

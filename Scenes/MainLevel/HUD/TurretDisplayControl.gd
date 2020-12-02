@@ -16,6 +16,7 @@ export(
 var item_name = ''
 var item_cost = 20
 var item_info = ''
+var started = false
 
 onready var info = $Info/InfoLabel
 onready var displayTexture = $TurretDisplayControl/DisplayTexture
@@ -63,6 +64,9 @@ func _on_TurretDisplayButton_toggled(button_pressed):
 		info.show()
 		emit_signal("item_selected", item, item_cost, self)
 	else:
+		if started:
+			Music.UIHoverSound.play()
+		started = true
 		rect_position -= Vector2(3, 3).rotated(rect_rotation)
 		set_modulate(Color(1,1,1,.8))
 		info.hide()

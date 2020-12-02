@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Abstract/Music/Music.gd" type="Script" id=1]
 [ext_resource path="res://AudioFiles/UI_Sounds_Hovered.wav" type="AudioStream" id=2]
 [ext_resource path="res://AudioFiles/GameMusic.ogg" type="AudioStream" id=3]
-[ext_resource path="res://AudioFiles/TitleMusic.ogg" type="AudioStream" id=4]
+[ext_resource path="res://AudioFiles/UI_Sounds_Abort.wav" type="AudioStream" id=4]
 [ext_resource path="res://AudioFiles/UI_Sounds_Selected.wav" type="AudioStream" id=5]
 [ext_resource path="res://AudioFiles/DropWhistle.wav" type="AudioStream" id=6]
 [ext_resource path="res://AudioFiles/LunarBastion_Explosion.wav" type="AudioStream" id=7]
+[ext_resource path="res://AudioFiles/Danger_Alert_Sound.wav" type="AudioStream" id=8]
+[ext_resource path="res://AudioFiles/TitleMusic.ogg" type="AudioStream" id=9]
+[ext_resource path="res://AudioFiles/GroundHitSound.wav" type="AudioStream" id=10]
 
 [node name="Music" type="Node"]
 script = ExtResource( 1 )
@@ -16,11 +19,11 @@ script = ExtResource( 1 )
 [node name="StopMusicTween" type="Tween" parent="."]
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 9 )
 volume_db = -25.0
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 3 )
 volume_db = -25.0
 
 [node name="UIHoverSound" type="AudioStreamPlayer" parent="."]
@@ -32,11 +35,28 @@ pitch_scale = 0.8
 stream = ExtResource( 5 )
 volume_db = -15.0
 
+[node name="UIAlertSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -15.0
+pitch_scale = 3.0
+
+[node name="UIErrorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+pitch_scale = 6.0
+
 [node name="DropWhistleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -20.0
+volume_db = -27.0
+pitch_scale = 1.6
 
 [node name="ExplodeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -15.0
+pitch_scale = 0.1
+
+[node name="GroundHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -27.0
+pitch_scale = 0.8
 [connection signal="tween_completed" from="StopMusicTween" to="." method="_on_StopMusicTween_tween_completed"]

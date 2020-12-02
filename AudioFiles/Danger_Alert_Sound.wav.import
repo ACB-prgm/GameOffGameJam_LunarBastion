@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Danger_Alert_Sound.wav-d4b1a8a9619cdaeabe4b0b3f37b73fdb.sample"
+
+[deps]
+
+source_file="res://AudioFiles/Danger_Alert_Sound.wav"
+dest_files=[ "res://.import/Danger_Alert_Sound.wav-d4b1a8a9619cdaeabe4b0b3f37b73fdb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

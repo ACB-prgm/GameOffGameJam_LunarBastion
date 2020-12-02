@@ -8,12 +8,11 @@ onready var gameMusic = $GameMusic
 #SOUNDS
 onready var UIHoverSound = $UIHoverSound
 onready var UISelectSound = $UISelectSound
-#onready var basicBulletSound = $Basic_BulletSound
-#onready var rocketBulletSound = $Rocket_BulletSound
-#onready var sniperBulletSound = $Sniper_BulletSound
-#onready var shotgunBulletSound = $Shotgun_BulletSound
+onready var UIAlertSound = $UIAlertSound
+onready var UIErrorSound = $UIErrorSound
 onready var dropWhistleSound = $DropWhistleSound
 onready var explodeSound = $ExplodeSound
+onready var groundHitSOund = $GroundHitSound
 
 
 onready var sounds = [

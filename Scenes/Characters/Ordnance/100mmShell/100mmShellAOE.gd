@@ -5,7 +5,6 @@ onready var aOE = $AOECollisionShape
 onready var impactSprite = $ImpactSprite
 onready var charSprite = $CharSprite
 onready var impactSpriteTween = $ImpactSpriteTween
-onready var explodeSound = Music.explodeSound
 
 var shake_amount = 50
 var fade_complete = false
@@ -22,7 +21,6 @@ func _ready():
 		damage = shellType_info.get('damage')
 		radius = shellType_info.get('radius')
 	
-	explodeSound.play()
 	aOE.shape.set_radius(radius)
 	
 	# Shell effects
@@ -42,6 +40,9 @@ func _ready():
 	Vector2(.5,.5), .18, Tween.TRANS_ELASTIC, Tween.EASE_IN)
 	
 	impactSpriteTween.start()
+	
+	Music.explodeSound.pitch_scale = 0.1 + rand_range(-0.02, 0.02)
+	Music.explodeSound.play()
 
 func _on_CollisionTimer_timeout():
 	set_deferred('monitorable', false)

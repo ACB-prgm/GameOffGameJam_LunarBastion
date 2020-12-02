@@ -100,6 +100,7 @@ func _on_HideTabsButton_toggled(button_pressed):
 func _on_LaunchButton_pressed():
 	if mode != 2 or mode == 2 and num_turrets < turret_limit:
 		if moontoniumCounter.moontonium >= selected_item_cost:
+			Music.UIAlertSound.play()
 			if mode == 2: # if turret build mode
 				num_turrets += 1
 				set_turret_limit_label()
@@ -115,8 +116,10 @@ func _on_LaunchButton_pressed():
 				_on_turret_upgrade_deselected()
 		else:
 			messagerLabel.display_message('Not enough Moontonium!')
+			Music.UIErrorSound.play()
 	else:
 		messagerLabel.display_message('turret build limit reached!')
+		Music.UIErrorSound.play()
 
 func _on_AbortButton_pressed():
 	messagerLabel.display_message('Launch aborted')

@@ -5,10 +5,14 @@ signal current_item_deselected()
 signal upgrade_selected(upgrade, cost)
 
 var current_item_selected = null
+var started = false
 
 
 func _on_UITabs_tab_changed(tab):
-	Music.UISelectSound.play()
+	if started:
+		Music.UISelectSound.play()
+	started = true
+	
 	deselect_buttons(null, get_tab_control(get_previous_tab()))
 	
 	if tab == 0:
@@ -45,6 +49,7 @@ func deselect_buttons(item_selected=null, tab=get_current_tab_control()):
 		other_items.erase(item_selected)
 	for child in other_items:
 		if child.is_pressed():
+			child.started = false
 			child.set_pressed(false)
 
 func _on_TabsMouseDetector_custom_mouse_entered_exited(entered):

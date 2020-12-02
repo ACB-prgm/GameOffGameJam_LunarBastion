@@ -22,6 +22,7 @@ var turret_level = 1
 var max_turret_level = 3
 var turret_at_max_level = false
 var upgrade_cost = 0
+var started = false
 
 
 func _ready():
@@ -53,7 +54,12 @@ func _on_UpgradeDisplayButton_toggled(button_pressed):
 		rect_position += Vector2(3, 3).rotated(rect_rotation)
 		set_modulate(Color(1.1,1.1,1.1,1))
 		emit_signal("upgrade_selected", upgrade, upgrade_cost, self)
+	elif button_pressed and turret_at_max_level:
+		Music.UIErrorSound.play()
 	else:
+		if started:
+			Music.UIHoverSound.play()
+		started = true
 		rect_position -= Vector2(3, 3).rotated(rect_rotation)
 		set_modulate(Color(1,1,1,.8))
 		emit_signal("upgrade_deselected", self)

@@ -34,6 +34,7 @@ func _on_Timer_timeout():
 		mortars_spawned = true
 
 func spawn_Shell():
+	Music.dropWhistleSound.play()
 	var individual_target_position = target_position + Vector2(rand_range(-spawn_zone.x, spawn_zone.x),rand_range(-spawn_zone.y, spawn_zone.y))
 	var new_shell = shell.instance()
 	new_shell.rotation += deg2rad(45)
