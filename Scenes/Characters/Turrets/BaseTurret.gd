@@ -67,7 +67,7 @@ func aim(delta):
 	current_look_direction = Vector2.RIGHT.rotated(head.rotation).normalized()
 	head.current_look_direction = self.current_look_direction
 	
-	if target:
+	if is_instance_valid(target):
 		head.rotation = lerp_angle(head.rotation,
 		 (target.global_position - head.global_position).normalized().angle(), swivel_speed * delta)
 #		head.look_at(get_global_mouse_position()) # FOR TESTING
@@ -105,7 +105,7 @@ func aim(delta):
 
 
 func shoot():
-	if target and can_shoot:
+	if is_instance_valid(target) and can_shoot:
 #		shootsound.pitch_scale = 1 + rand_range(-0.05, 0.05)
 #		shootsound.play()
 		can_shoot = false
@@ -142,7 +142,7 @@ func _on_Range_body_entered(body):
 		target = body
 
 func _on_Range_body_exited(body):
-	if target:
+	if is_instance_valid(target):
 		if body == target:
 			target = null
 

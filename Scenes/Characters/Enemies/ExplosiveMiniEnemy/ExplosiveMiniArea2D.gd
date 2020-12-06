@@ -22,7 +22,7 @@ func _physics_process(_delta):
 func damage_():
 	var targets = get_overlapping_bodies()
 	for target in targets:
-		if target:
+		if is_instance_valid(target):
 			target.health -= damage
 
 func _on_DeathTimer_timeout():

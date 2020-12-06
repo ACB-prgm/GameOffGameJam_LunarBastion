@@ -160,7 +160,7 @@ func _on_Base_upgrade_base_selected():
 
 func _on_Base_upgrade_base_deselected():
 	emit_signal("base_deselected")
-	if Globals.Base:
+	if is_instance_valid(Globals.Base):
 		Globals.Base.upgrade_deselect()
 
 
@@ -187,10 +187,10 @@ func on_turret_upgrade_selected(turret_node):
 	add_child(displayUpgrade)
 
 func _on_turret_upgrade_deselected():
-	if current_upgrade_display:
+	if is_instance_valid(current_upgrade_display):
 		current_upgrade_display.queue_free()
-		
-	if last_turret_node:
+
+	if is_instance_valid(last_turret_node):
 		last_turret_node.upgrade_deselect()
 		last_turret_node = null
 	
