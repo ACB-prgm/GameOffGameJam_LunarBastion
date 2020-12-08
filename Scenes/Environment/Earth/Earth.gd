@@ -25,7 +25,8 @@ func _on_Gun_frame_changed():
 		global_position += Vector2(2,2)
 		movementTween.interpolate_property(self, 'global_position', global_position, start_pos, 2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		movementTween.start()
-		Globals.camera.shake(25)
+		if Globals.camera:
+			Globals.camera.shake(25)
 
 func flash_Sprite():
 	flashTween.interpolate_property(gunFlash, 'modulate', 

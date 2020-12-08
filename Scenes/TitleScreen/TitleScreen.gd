@@ -16,8 +16,7 @@ var queued = null
 
 func _ready():
 	Globals.save_data()
-	Items.load_backup()
-	Globals.enemy_health_multiplyer = 1
+	Globals.reset_stats()
 	
 	Music.play_music_fade(Music.titleMusic, Music.titleMusic.volume_db)
 	

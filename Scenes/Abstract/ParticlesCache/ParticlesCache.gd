@@ -18,6 +18,8 @@ var healingLoops = preload("res://Scenes/Abstract/ParticlesCache/Materials/Heali
 var enemyProjectile = preload("res://Scenes/Abstract/ParticlesCache/Materials/EnemyProjectile.tres")
 var enemyProjectileExplosion = preload("res://Scenes/Abstract/ParticlesCache/Materials/EnemyProjectileExplosion.tres")
 var godotLoadSceneParticles = preload("res://Scenes/StartUp/GodotSplash/GodotLogoParticles.tres")
+var drillParticles = preload("res://Scenes/Abstract/ParticlesCache/Materials/BaseDrillParticles.tres")
+var levelUpParticles = preload("res://Scenes/Abstract/ParticlesCache/Materials/LevelUpParticles.tres")
 
 var materials = [
 	muzzleFlashSide,
@@ -34,7 +36,9 @@ var materials = [
 	healingLoops,
 	enemyProjectile,
 	enemyProjectileExplosion,
-	godotLoadSceneParticles
+	godotLoadSceneParticles,
+	drillParticles,
+	levelUpParticles
 ]
 
 func _ready():

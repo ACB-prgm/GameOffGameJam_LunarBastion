@@ -283,10 +283,10 @@ __meta__ = {
 }
 [connection signal="base_deselected" from="." to="UITabs" method="_on_HUD_base_deselected"]
 [connection signal="base_selected" from="." to="UITabs" method="_on_HUD_base_selected"]
-[connection signal="item_launched" from="." to="UITabs" method="_on_item_launched"]
 [connection signal="item_launched" from="." to="MoontoniumCounter" method="_on_HUD_item_launched"]
-[connection signal="upgrade_launched" from="." to="UITabs" method="_on_HUD_upgrade_launched"]
+[connection signal="item_launched" from="." to="UITabs" method="_on_item_launched"]
 [connection signal="upgrade_launched" from="." to="MoontoniumCounter" method="_on_HUD_upgrade_launched"]
+[connection signal="upgrade_launched" from="." to="UITabs" method="_on_HUD_upgrade_launched"]
 [connection signal="current_item_deselected" from="UITabs" to="." method="_on_UITabs_current_item_deselected"]
 [connection signal="item_selected" from="UITabs" to="." method="_on_UITabs_item_selected"]
 [connection signal="tab_changed" from="UITabs" to="." method="_on_UITabs_tab_changed"]

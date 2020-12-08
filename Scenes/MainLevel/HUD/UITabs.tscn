@@ -53,6 +53,7 @@ __meta__ = {
 }
 
 [node name="Upgrade" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 22.0
@@ -176,7 +177,6 @@ action_mode = 0
 item = "health kit"
 
 [node name="Turrets" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 22.0
@@ -224,15 +224,15 @@ margin_bottom = 70.0
 rect_rotation = 90.0
 action_mode = 0
 item = "rocket launcher"
+[connection signal="base_upgrade_deselected" from="." to="Upgrade/UpgradeDisplayButton" method="_on_UITabs_base_upgrade_deselected"]
 [connection signal="base_upgrade_deselected" from="." to="Upgrade/UpgradeDisplayButton2" method="_on_UITabs_base_upgrade_deselected"]
 [connection signal="base_upgrade_deselected" from="." to="Upgrade/UpgradeDisplayButton3" method="_on_UITabs_base_upgrade_deselected"]
-[connection signal="base_upgrade_deselected" from="." to="Upgrade/UpgradeDisplayButton" method="_on_UITabs_base_upgrade_deselected"]
 [connection signal="base_upgrade_deselected" from="." to="Upgrade/UpgradeDisplayButton5" method="_on_UITabs_base_upgrade_deselected"]
 [connection signal="base_upgrade_deselected" from="." to="Upgrade/UpgradeDisplayButton6" method="_on_UITabs_base_upgrade_deselected"]
 [connection signal="base_upgrade_deselected" from="." to="Upgrade/UpgradeDisplayButton4" method="_on_UITabs_base_upgrade_deselected"]
+[connection signal="base_upgrade_selected" from="." to="Upgrade/UpgradeDisplayButton" method="_on_UITabs_base_upgrade_selected"]
 [connection signal="base_upgrade_selected" from="." to="Upgrade/UpgradeDisplayButton2" method="_on_UITabs_base_upgrade_selected"]
 [connection signal="base_upgrade_selected" from="." to="Upgrade/UpgradeDisplayButton3" method="_on_UITabs_base_upgrade_selected"]
-[connection signal="base_upgrade_selected" from="." to="Upgrade/UpgradeDisplayButton" method="_on_UITabs_base_upgrade_selected"]
 [connection signal="base_upgrade_selected" from="." to="Upgrade/UpgradeDisplayButton5" method="_on_UITabs_base_upgrade_selected"]
 [connection signal="base_upgrade_selected" from="." to="Upgrade/UpgradeDisplayButton6" method="_on_UITabs_base_upgrade_selected"]
 [connection signal="base_upgrade_selected" from="." to="Upgrade/UpgradeDisplayButton4" method="_on_UITabs_base_upgrade_selected"]

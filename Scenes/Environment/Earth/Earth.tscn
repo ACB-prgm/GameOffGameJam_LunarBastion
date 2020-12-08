@@ -93,6 +93,7 @@ rotation = 0.575959
 frames = SubResource( 14 )
 
 [node name="EarthFlash" type="Sprite" parent="GunFlash"]
+visible = false
 position = Vector2( 19.4189, 27.3718 )
 rotation = -0.575959
 texture = ExtResource( 7 )

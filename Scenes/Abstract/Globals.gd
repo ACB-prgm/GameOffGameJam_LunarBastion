@@ -15,7 +15,13 @@ var enemy_health_multiplyer = 1
 var endgame_attackrate_increased = false
 
 
-# SAVING
+func reset_stats():
+	enemy_health_multiplyer = 1
+	endgame_attackrate_increased = false
+	Items.load_backup()
+
+
+# SAVING —————————————————————————————————————
 const SAVE_DIR = 'user://saves/'
 var save_path = SAVE_DIR + 'save.dat'
 
@@ -23,6 +29,7 @@ var save_path = SAVE_DIR + 'save.dat'
 func _ready():
 	# center the game window on the screen
 	OS.set_window_position(OS.get_screen_size()*0.5 - OS.get_window_size()*0.5)
+	
 	load_data()
 
 func save_data():

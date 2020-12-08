@@ -16,18 +16,17 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 4 )
 
-[node name="GodotStartupScreen" type="Node2D"]
+[node name="GodotStartupScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -59.5
-margin_top = -45.5
-margin_right = 539.5
-margin_bottom = 315.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -44,19 +43,23 @@ boot_up = true
 stream = ExtResource( 6 )
 volume_db = -3.0
 
-[node name="GodotAnimatedSprite" parent="." instance=ExtResource( 3 )]
-modulate = Color( 1.15, 1.15, 1.35, 1 )
-position = Vector2( 240, 136 )
-
 [node name="Control" type="Control" parent="."]
 modulate = Color( 1, 1, 1.15, 1 )
-margin_left = 80.0
-margin_top = -24.0
-margin_right = 400.0
-margin_bottom = 296.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -160.0
+margin_right = 160.0
+margin_bottom = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GodotAnimatedSprite" parent="Control" instance=ExtResource( 3 )]
+modulate = Color( 1.1, 1.1, 1.2, 1 )
+position = Vector2( 160, 160 )
 
 [node name="Made" type="Label" parent="Control"]
 anchor_left = 0.5
@@ -123,13 +126,15 @@ process_mode = 0
 wait_time = 1.3
 one_shot = true
 
-[node name="AnimationPlayTimer" type="Timer" parent="."]
-process_mode = 0
-wait_time = 0.4
-one_shot = true
-autostart = true
-[connection signal="animation_finished" from="GodotAnimatedSprite" to="." method="_on_GodotAnimatedSprite_animation_finished"]
-[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_ChangeSceneTimer_timeout"]
-[connection signal="timeout" from="AnimationPlayTimer" to="." method="_on_AnimationPlayTimer_timeout"]
+[node name="BlockingColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[editable path="GodotAnimatedSprite"]
+[node name="StartTween" type="Tween" parent="."]
+[connection signal="animation_finished" from="Control/GodotAnimatedSprite" to="." method="_on_GodotAnimatedSprite_animation_finished"]
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_ChangeSceneTimer_timeout"]
+[connection signal="tween_all_completed" from="StartTween" to="." method="_on_StartTween_tween_all_completed"]

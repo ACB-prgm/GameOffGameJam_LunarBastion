@@ -138,7 +138,7 @@ z_index = -1
 [node name="Drill" type="AnimatedSprite" parent="Drill"]
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 13 )
-frame = 1
+frame = 7
 playing = true
 
 [node name="DrillLight" type="Sprite" parent="Drill"]

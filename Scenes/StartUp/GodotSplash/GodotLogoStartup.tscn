@@ -25,7 +25,6 @@ animations = [ {
 } ]
 
 [node name="GodotAnimatedSprite" type="AnimatedSprite"]
-modulate = Color( 1.1, 1.1, 1.3, 1 )
 frames = SubResource( 4 )
 script = ExtResource( 1 )
 

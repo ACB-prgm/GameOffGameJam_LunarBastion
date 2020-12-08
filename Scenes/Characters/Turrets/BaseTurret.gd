@@ -172,6 +172,7 @@ func _on_Button_mouse_exited():
 func _on_Button_toggled(button_pressed):
 	if Globals.upgrade_mode:
 		if button_pressed:
+			$LevelUp.animate()
 			emit_signal("turret_upgrade_selected", self)
 			upgrade_pressed = true
 			set_modulate(glow_color)
