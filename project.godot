@@ -19,7 +19,7 @@ config/name="GameOffGameJam_GodotProject"
 run/main_scene="res://Scenes/StartUp/GodotSplash/GodotStartupScreen.tscn"
 boot_splash/image="res://Scenes/StartUp/GodotSplash/BlackBack.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://Icon.png"
+config/icon="res://icon.png"
 
 [autoload]
 
