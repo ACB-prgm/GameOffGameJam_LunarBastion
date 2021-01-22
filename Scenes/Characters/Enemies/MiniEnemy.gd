@@ -15,7 +15,7 @@ func _ready():
 		$Sprite.set_modulate(Color(1, .55, .55, 1))
 
 func attack():
-	if target:
+	if is_instance_valid(target):
 		if !explosive: #NORMAL
 			target.health -= self.damage
 		else: #EXPLOSIVE

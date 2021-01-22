@@ -16,7 +16,7 @@ onready var trail = $Particles2D
 
 func seek():
 	var steer = Vector2.ZERO
-	if target:
+	if is_instance_valid(target):
 		var desired = (target.global_position - global_position).normalized() * speed
 		steer = (desired - velocity).normalized() * steer_force
 	return steer

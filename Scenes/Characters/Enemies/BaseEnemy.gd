@@ -37,7 +37,7 @@ func _physics_process(delta):
 		die()
 
 func movement(delta):
-	if target:
+	if is_instance_valid(target):
 		direction = self.global_position.direction_to(target.global_position)
 		if !target_detected:
 			velocity += direction * speed * delta
@@ -45,7 +45,7 @@ func movement(delta):
 			velocity = velocity.move_toward(Vector2.ZERO, speed * delta)
 		velocity = velocity.clamped(speed)
 	else:
-		if base:
+		if is_instance_valid(base):
 			target = base
 			target_detected = false
 		velocity = Vector2.ZERO
@@ -87,5 +87,5 @@ func _on_AttackRateTimer_timeout():
 	attack()
 
 func attack():
-	if target:
+	if is_instance_valid(target):
 		target.health -= self.damage
